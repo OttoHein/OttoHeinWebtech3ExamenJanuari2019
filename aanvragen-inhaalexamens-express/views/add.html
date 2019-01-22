@@ -1,0 +1,22 @@
+<form action="/add" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type="text" placeholder="exam" name="exam">
+  <input type="text" placeholder="reason" name="reason">
+  <input type="hidden" name="time" id="time" value="">
+  <button type="submit">Submit</button>
+</form>
+<script type="text/javascript">var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = mm + '/' + dd + '/' + yyyy;
+document.getElementById('time').value = today</script>

@@ -46,3 +46,10 @@ app.post('/add', (req, res) => {
 app.get('/search', (req, res) => {
 	res.sendFile(__dirname + '/views/search.html')
 })
+
+app.post('/search', (req, res) => {
+	var query = { name: req.body.name }
+	db.collection('inhaal').find( query ).toArray(function(err, result) {
+		res.send(result)
+	})
+})

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ReceptFormComponent } from './recept-form/recept-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReceptListComponent } from './recept-list/recept-list.component';
+import { ReceptService } from './services/recept.service';
 
 // define the routes
 const appRoutes: Routes = [
@@ -25,9 +26,10 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, 
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ ReceptService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

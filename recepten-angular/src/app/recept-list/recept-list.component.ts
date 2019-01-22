@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Recept } from '../models/recept';
+import { ReceptService } from '../services/recept.service';
 
 @Component({
   selector: 'app-recept-list',
@@ -10,9 +11,11 @@ export class ReceptListComponent implements OnInit {
 
   recepts: Recept[];
 
-  constructor() { }
+  constructor(private receptService: ReceptService) { }
 
   ngOnInit() {
+  	this.recepts = this.receptService.getAllRecepts();
+	console.log(this.recepts[0])  
   }
 
 }

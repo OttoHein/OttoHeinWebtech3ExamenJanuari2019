@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Add Recept Form</h1>
+  <form (ngSubmit)='onSubmit()' #productForm='ngForm'>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="calories">Author</label>
+      <input type="number" class="form-control" id="calories" required [(ngModel)]="model.calories" name="calories">
+    </div>
+    <div class="form-group">
+      <label for="ingredients">URL</label>
+      <input type="text" class="form-control" id="ingredients" [(ngModel)]="model.ingredients" name="ingredients">
+    </div>
+    <div class="form-group">
+      <label for="timeForPreparation">Author</label>
+      <input type="number" class="form-control" id="timeForPreparation" required [(ngModel)]="model.timeForPreparation" name="timeForPreparation">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+   </form>
+ </div>
+
+<div>

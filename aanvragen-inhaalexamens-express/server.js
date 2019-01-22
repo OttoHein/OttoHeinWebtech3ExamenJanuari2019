@@ -30,7 +30,7 @@ app.post('/add', (req, res) => {
 
 	db.collection('inhaal').find( query ).toArray(function(err, result) {
     if (err) throw err;
-    if (result != null){
+    if (result[0] != null){
     	console.log("Duplicate!");
     } else {
     	db.collection('inhaal').save(req.body, (err, result) => {

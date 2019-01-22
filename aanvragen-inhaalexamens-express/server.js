@@ -26,10 +26,23 @@ app.get('/add', (req, res) => {
 })
 
 app.post('/add', (req, res) => {
-	db.collection('inhaal').save(req.body, (err, result) => {
+	var query = { name : req.body.name, exam : req.body.exam, reason : req.body.reason };
+
+	db.collection('inhaal').find( query ).toArray(function(err, result) {
+    if (err) throw err;
+    if (result != null){
+    	console.log("Duplicate!");
+    } else {
+    	db.collection('inhaal').save(req.body, (err, result) => {
 		if (err) return console.log(err)
 
 		console.log('saved to database')
-		res.redirect('/')
-	})
+		})
+    }
+    res.redirect('/')
+  });
+})
+
+app.get('/search', (req, res) => {
+	res.sendFile(__dirname + '/views/search.html')
 })

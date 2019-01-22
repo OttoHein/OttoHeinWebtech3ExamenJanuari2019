@@ -15,7 +15,8 @@ export class ReceptListComponent implements OnInit {
 
   ngOnInit() {
   	this.recepts = this.receptService.getAllRecepts();
-	console.log(this.recepts[0])  
+  	this.recepts.sort();
+	console.log(this.recepts)  
   }
 
 }

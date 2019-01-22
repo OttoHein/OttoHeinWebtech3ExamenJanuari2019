@@ -20,6 +20,17 @@ export class ReceptService {
   }
 
   addRecept(recept: Recept) {
+  	var values = [],
+        keys = Object.keys(localStorage),
+        i = keys.length;
+
+    while ( i-- ) {
+        if (recept.name == keys[i]) {
+        	console.log("Duplicate!");
+        	return null;
+        }
+    }
+
   	return localStorage.setItem(recept.name, JSON.stringify(recept));
   }
 }
